@@ -1,0 +1,31 @@
+version: '3'
+
+volumes:
+  backend:
+
+services:
+
+  database:
+    image: mariadb:10
+    container_name: wordpress_nuxt_database
+    environment:
+      MYSQL_RANDOM_ROOT_PASSWORD: '1'
+      MYSQL_DATABASE: wordpress
+      MYSQL_USER: wordpress
+      MYSQL_PASSWORD: wordpress
+
+  backend:
+    depends_on:
+      - database
+    image: wordpress:5
+    container_name: wordpress_nuxt_backend
+    ports:
+      - 8000:80
+    volumes:
+      - backend:/var/www/html/wp-content
+      - ./theme:/var/www/html/wp-content/themes/empty
+    environment:
+      WORDPRESS_DB_HOST: database
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_DB_NAME: wordpress

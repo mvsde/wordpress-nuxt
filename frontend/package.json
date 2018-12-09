@@ -1,0 +1,27 @@
+{
+  "name": "wordpress-nuxt",
+  "version": "1.0.0",
+  "description": "An experiment with the WordPress JSON API and Nuxt.js",
+  "author": "Fynn Becker",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "precommit": "npm run lint"
+  },
+  "dependencies": {
+    "ky": "^0.5.1",
+    "normalize.css": "^8.0.1",
+    "nuxt": "^2.3.4"
+  },
+  "devDependencies": {
+    "@vue/eslint-config-standard": "^4.0.0",
+    "babel-eslint": "^10.0.1",
+    "eslint": "^5.10.0",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-vue": "^5.0.0"
+  }
+}
